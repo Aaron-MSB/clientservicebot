@@ -1,0 +1,99 @@
+{
+  "kpis": {
+    "queries_today": 1245,
+    "queries_mtd": 24357,
+    "queries_fy": 123456,
+    "avg_qoe": 0.78,
+    "nps": 34
+  },
+  "timeseries": {
+    "queries": [
+      {"date":"2025-11-01","count":1200},
+      {"date":"2025-11-02","count":1100},
+      {"date":"2025-11-03","count":1150},
+      {"date":"2025-11-04","count":1250},
+      {"date":"2025-11-05","count":1300},
+      {"date":"2025-11-06","count":1230},
+      {"date":"2025-11-07","count":1280},
+      {"date":"2025-11-08","count":1350},
+      {"date":"2025-11-09","count":1400},
+      {"date":"2025-11-10","count":1420},
+      {"date":"2025-11-11","count":1380},
+      {"date":"2025-11-12","count":1450},
+      {"date":"2025-11-13","count":1500},
+      {"date":"2025-11-14","count":1245}
+    ],
+    "qoe": [
+      {"date":"2025-11-01","value":0.72},
+      {"date":"2025-11-02","value":0.71},
+      {"date":"2025-11-03","value":0.73},
+      {"date":"2025-11-04","value":0.74},
+      {"date":"2025-11-05","value":0.75},
+      {"date":"2025-11-06","value":0.76},
+      {"date":"2025-11-07","value":0.77},
+      {"date":"2025-11-08","value":0.78},
+      {"date":"2025-11-09","value":0.79},
+      {"date":"2025-11-10","value":0.78},
+      {"date":"2025-11-11","value":0.77},
+      {"date":"2025-11-12","value":0.79},
+      {"date":"2025-11-13","value":0.80},
+      {"date":"2025-11-14","value":0.78}
+    ],
+    "nps": [
+      {"date":"2025-11-01","value":30},
+      {"date":"2025-11-02","value":28},
+      {"date":"2025-11-03","value":29},
+      {"date":"2025-11-04","value":31},
+      {"date":"2025-11-05","value":33},
+      {"date":"2025-11-06","value":32},
+      {"date":"2025-11-07","value":34},
+      {"date":"2025-11-08","value":35},
+      {"date":"2025-11-09","value":36},
+      {"date":"2025-11-10","value":34},
+      {"date":"2025-11-11","value":33},
+      {"date":"2025-11-12","value":35},
+      {"date":"2025-11-13","value":36},
+      {"date":"2025-11-14","value":34}
+    ]
+  },
+  "top_categories": [
+    {"category":"Payments","count":2345},
+    {"category":"Registration","count":1987},
+    {"category":"Motor Vehicle","count":1500},
+    {"category":"Refunds","count":1120},
+    {"category":"Efris","count":940},
+    {"category":"Touchpoint","count":800},
+    {"category":"Objections","count":620},
+    {"category":"Exemptions","count":420}
+  ],
+  "device_breakdown": [
+    {"device":"mobile","count":800},
+    {"device":"desktop","count":445},
+    {"device":"tablet","count":200}
+  ],
+  "top_locations": [
+    {"country":"UG","region":"Kampala","count":1234},
+    {"country":"UG","region":"Entebbe","count":320},
+    {"country":"UG","region":"Gulu","count":210},
+    {"country":"UG","region":"Mbarara","count":180},
+    {"country":"KE","region":"Nairobi","count":120}
+  ],
+  "alerts": [
+    {
+      "id":"alert-1",
+      "name":"Spike in negative sentiment - Kampala",
+      "severity":"critical",
+      "triggered_at":"2025-11-14T09:12:00Z",
+      "rule_summary":"negative_sentiment_rate > 0.25",
+      "payload":{"summary":"Negative sentiment spiked to 32% in Kampala. Top category: Payments."}
+    },
+    {
+      "id":"alert-2",
+      "name":"Unresolved sessions over SLA",
+      "severity":"warning",
+      "triggered_at":"2025-11-13T07:42:00Z",
+      "rule_summary":"avg_time_to_resolve > 48h",
+      "payload":{"summary":"42 sessions have been open for more than 48 hours. Top owner team: Client Service."}
+    }
+  ]
+}
