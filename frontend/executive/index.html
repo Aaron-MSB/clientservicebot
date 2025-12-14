@@ -7,51 +7,56 @@
 
   <link rel="stylesheet" href="styles.css" />
   <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar" role="banner">
     <div class="brand">URA — ClientServiceBot</div>
-    <div class="controls">
-      <label for="range">Time range</label>
-      <select id="range">
+    <div class="controls" role="region" aria-label="Dashboard controls">
+      <label for="range" class="visually-hidden">Time range</label>
+      <select id="range" aria-label="Select time range">
         <option value="7">Last 7 days</option>
-        <option value="14" selected>Last 14 days</option>
+        <option value="14">Last 14 days</option>
         <option value="30">Last 30 days</option>
-        <option value="mtd">MTD</option>
+        <option value="mtd">Month to date (MTD)</option>
+        <option value="fy">Financial year</option>
       </select>
-      <button id="refresh">Refresh</button>
+      <button id="refresh" aria-label="Refresh dashboard">Refresh</button>
+      <button id="exportCsv" aria-label="Export visible queries as CSV">Export CSV</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="kpis" id="kpi-tiles">
+  <main class="container" role="main">
+    <div id="loading" class="loading" aria-live="polite">Loading data…</div>
+    <div id="error" class="error" role="alert" hidden></div>
+
+    <section class="kpis" id="kpi-tiles" aria-live="polite">
       <!-- KPI tiles inserted here -->
     </section>
 
-    <section class="grid">
-      <div class="panel large">
+    <section class="grid" aria-label="Executive dashboard panels">
+      <div class="panel large" id="panel-queries">
         <h3>Queries over time</h3>
-        <canvas id="queriesChart" height="160"></canvas>
+        <canvas id="queriesChart" height="180" aria-label="Queries over time chart"></canvas>
       </div>
 
       <div class="panel small">
         <h3>Top Categories</h3>
-        <canvas id="categoriesChart" height="160"></canvas>
-        <div id="categoriesList" class="list"></div>
+        <canvas id="categoriesChart" height="160" aria-label="Top categories chart"></canvas>
+        <div id="categoriesList" class="list" aria-hidden="false"></div>
       </div>
 
       <div class="panel small">
         <h3>Device Breakdown</h3>
-        <canvas id="devicesChart" height="160"></canvas>
+        <canvas id="devicesChart" height="160" aria-label="Device breakdown chart"></canvas>
         <div id="deviceLegend" class="list"></div>
       </div>
 
       <div class="panel medium">
         <h3>Top Locations</h3>
-        <table id="locationsTable">
+        <table id="locationsTable" aria-label="Top locations table">
           <thead>
-            <tr><th>Country</th><th>Region</th><th>Count</th></tr>
+            <tr><th scope="col">Country</th><th scope="col">Region</th><th scope="col">Count</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -59,12 +64,12 @@
 
       <div class="panel medium">
         <h3>Executive Alerts</h3>
-        <div id="alertsList" class="alerts"></div>
+        <div id="alertsList" class="alerts" aria-live="polite"></div>
       </div>
 
       <div class="panel full">
         <h3>NPS & QoE History</h3>
-        <canvas id="qoeChart" height="80"></canvas>
+        <canvas id="qoeChart" height="90" aria-label="NPS and QoE history chart"></canvas>
       </div>
     </section>
   </main>
