@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClientServiceBot — Client Dashboard (Demo)</title>
+
+  <link rel="stylesheet" href="client_styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">URA — ClientServiceBot</div>
+    <div class="controls">
+      <div class="client-info">
+        <div class="client-name" id="clientName">Client: TIN 100-234-567</div>
+        <div class="client-sub" id="clientSub">Member since 2020</div>
+      </div>
+      <button id="startChat" class="btn">Start Chat</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpis" id="kpi-tiles"></section>
+
+    <section class="grid">
+      <div class="panel">
+        <h3>Interaction History</h3>
+        <div id="historyList" class="history"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Most Asked Questions</h3>
+        <div id="faqList" class="list"></div>
+      </div>
+
+      <div class="panel">
+        <h3>QoE & NPS Trend</h3>
+        <canvas id="qoeChart" height="120"></canvas>
+      </div>
+
+      <div class="panel full">
+        <h3>Recommended Documents</h3>
+        <div id="docsList" class="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Demo — client dashboard • Open in Live Server to run
+  </footer>
+
+  <script src="client_app.js"></script>
+</body>
+</html>
