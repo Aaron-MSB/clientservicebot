@@ -1,0 +1,58 @@
+{
+  "kpis": {
+    "api_p95": 320,
+    "llm_avg_latency": 840,
+    "vectordb_latency": 45,
+    "worker_queue_len": 12,
+    "error_rate_pct": 1.8
+  },
+  "health": {
+    "api_p95_ms": 320,
+    "requests_per_sec": 210,
+    "llm_avg_latency_ms": 840,
+    "llm_model": "gpt-4o",
+    "vectordb_latency_ms": 45,
+    "vectordb_status": "healthy",
+    "worker_queue_len": 12,
+    "worker_running_jobs": 3
+  },
+  "vector_db": [
+    {"name":"pgvector-main","status":"healthy","indexed_vectors":124560},
+    {"name":"pinecone-analytics","status":"degraded","indexed_vectors":98000}
+  ],
+  "timeseries": {
+    "errors": [
+      {"date":"2025-12-07","services":{"backend":0.5,"ingest":0.2,"llm":0.1}},
+      {"date":"2025-12-08","services":{"backend":0.6,"ingest":0.1,"llm":0.15}},
+      {"date":"2025-12-09","services":{"backend":1.2,"ingest":0.5,"llm":0.2}},
+      {"date":"2025-12-10","services":{"backend":0.9,"ingest":0.3,"llm":0.25}},
+      {"date":"2025-12-11","services":{"backend":0.8,"ingest":0.4,"llm":0.2}},
+      {"date":"2025-12-12","services":{"backend":1.5,"ingest":0.6,"llm":0.4}},
+      {"date":"2025-12-13","services":{"backend":2.1,"ingest":1.2,"llm":0.9}}
+    ],
+    "ingest": [
+      {"date":"2025-12-07","docs_per_day":120},
+      {"date":"2025-12-08","docs_per_day":150},
+      {"date":"2025-12-09","docs_per_day":180},
+      {"date":"2025-12-10","docs_per_day":90},
+      {"date":"2025-12-11","docs_per_day":200},
+      {"date":"2025-12-12","docs_per_day":170},
+      {"date":"2025-12-13","docs_per_day":220}
+    ]
+  },
+  "escalations": [
+    {"id":"ESC-T-3001","session_id":"S-922","priority":"critical","owner_team":"technical","status":"open","created_at":"2025-12-11 08:40"},
+    {"id":"ESC-T-3002","session_id":"S-950","priority":"high","owner_team":"technical","status":"in_progress","created_at":"2025-12-12 11:12"},
+    {"id":"ESC-T-3003","session_id":"S-960","priority":"medium","owner_team":"client_service","status":"open","created_at":"2025-12-13 09:30"}
+  ],
+  "ingest_jobs": [
+    {"id":"job-abc-1","name":"ingest-ura-blueprint-2025-12-12","status":"failed","started_at":"2025-12-12 03:12"},
+    {"id":"job-def-2","name":"ocr-batch-2025-12-13","status":"running","started_at":"2025-12-13 01:02"},
+    {"id":"job-ghi-3","name":"embeddings-refresh-2025-12-10","status":"completed","started_at":"2025-12-10 22:10"}
+  ],
+  "recent_logs": [
+    {"id":"log-1","timestamp":"2025-12-13 09:11:02","service":"backend","level":"error","message":"Error: NullPointer in document parser at parse_document (doc_id=doc-pay-001)"},
+    {"id":"log-2","timestamp":"2025-12-13 08:44:18","service":"ingest-worker","level":"warn","message":"Retrying job job-abc-1 after transient DB error"},
+    {"id":"log-3","timestamp":"2025-12-12 23:10:55","service":"llm-proxy","level":"error","message":"Timeout calling OpenAI embeddings endpoint (504) for batch_id b-20251212-1"}
+  ]
+}
