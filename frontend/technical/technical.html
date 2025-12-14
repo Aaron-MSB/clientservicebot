@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClientServiceBot — Technical Dashboard (Demo)</title>
+
+  <link rel="stylesheet" href="technical_styles.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">URA — ClientServiceBot (Technical)</div>
+    <div class="controls">
+      <label for="range">Time range</label>
+      <select id="range">
+        <option value="1">Last 1 day</option>
+        <option value="7" selected>Last 7 days</option>
+        <option value="30">Last 30 days</option>
+      </select>
+      <button id="refresh">Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpis" id="kpi-tiles">
+      <!-- KPI tiles inserted here -->
+    </section>
+
+    <section class="grid">
+      <div class="panel wide">
+        <h3>System Health Overview</h3>
+        <div class="health-grid">
+          <div class="health-cell">
+            <div class="health-label">API Latency P95</div>
+            <div class="health-value" id="apiP95">- ms</div>
+            <div class="health-sub" id="apiP95Sub">requests/sec</div>
+          </div>
+          <div class="health-cell">
+            <div class="health-label">LLM Avg Latency</div>
+            <div class="health-value" id="llmLatency">- ms</div>
+            <div class="health-sub" id="llmModel">model</div>
+          </div>
+          <div class="health-cell">
+            <div class="health-label">VectorDB Latency</div>
+            <div class="health-value" id="vecLatency">- ms</div>
+            <div class="health-sub" id="vecStatus">status</div>
+          </div>
+          <div class="health-cell">
+            <div class="health-label">Worker Queue Length</div>
+            <div class="health-value" id="queueLen">-</div>
+            <div class="health-sub" id="workerJobs">running jobs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel narrow">
+        <h3>Vector DB</h3>
+        <div id="vecDetails" class="list"></div>
+        <div style="margin-top:10px">
+          <button class="btn" onclick="reindex()">Re-index (demo)</button>
+          <button class="btn ghost" onclick="repairIndex()">Repair index</button>
+        </div>
+      </div>
+
+      <div class="panel wide">
+        <h3>Error Rate (by service)</h3>
+        <canvas id="errorChart" height="120"></canvas>
+      </div>
+
+      <div class="panel narrow">
+        <h3>Ingest Throughput</h3>
+        <canvas id="ingestChart" height="120"></canvas>
+      </div>
+
+      <div class="panel wide">
+        <h3>Technical Escalations</h3>
+        <table id="escalationsTable">
+          <thead>
+            <tr><th>ID</th><th>Session</th><th>Priority</th><th>Team</th><th>Status</th><th>Created</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="panel narrow">
+        <h3>Ingest Jobs</h3>
+        <div id="ingestJobs" class="list"></div>
+      </div>
+
+      <div class="panel full">
+        <h3>Recent Error Logs</h3>
+        <div id="logsList" class="logs"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Demo — technical dashboard • Open in Live Server to run
+  </footer>
+
+  <script src="technical_app.js"></script>
+</body>
+</html>
