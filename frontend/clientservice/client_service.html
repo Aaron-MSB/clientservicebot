@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClientServiceBot — Client Service Dashboard (Demo)</title>
+
+  <link rel="stylesheet" href="client_service_styles.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">URA — ClientServiceBot</div>
+    <div class="controls">
+      <label for="range">Time range</label>
+      <select id="range">
+        <option value="today" selected>Today</option>
+        <option value="7">Last 7 days</option>
+        <option value="30">Last 30 days</option>
+      </select>
+      <button id="refresh">Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpis" id="kpi-tiles">
+      <!-- KPI tiles inserted here -->
+    </section>
+
+    <section class="grid">
+      <div class="panel wide">
+        <h3>Open Escalations</h3>
+        <table id="escalationsTable">
+          <thead>
+            <tr><th>ID</th><th>Session</th><th>Priority</th><th>Owner Team</th><th>Summary</th><th>Age</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="panel narrow">
+        <h3>Summary</h3>
+        <div id="summaryList" class="list"></div>
+      </div>
+
+      <div class="panel wide">
+        <h3>Active Sessions Needing Attention</h3>
+        <table id="sessionsTable">
+          <thead>
+            <tr><th>Session</th><th>Client</th><th>Category</th><th>Started</th><th>Last Msg</th><th>Assigned</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="panel narrow">
+        <h3>Quality Panel (Recent Feedback)</h3>
+        <div id="feedbackList" class="list"></div>
+      </div>
+
+      <div class="panel full">
+        <h3>Suggested Knowledge Base Updates</h3>
+        <div id="kbSuggestions" class="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Demo — Client Service dashboard • Open in Live Server to run
+  </footer>
+
+  <script src="client_service_app.js"></script>
+</body>
+</html>
