@@ -1,0 +1,55 @@
+{
+  "client": {
+    "name": "Acme Supplies Ltd",
+    "tin": "TIN 100-234-567",
+    "since": "2018"
+  },
+  "kpis": {
+    "interactions_month": 7,
+    "avg_qoe": 0.82,
+    "recent_nps": 9,
+    "interaction_frequency": "Every 3 days"
+  },
+  "sessions": [
+    {
+      "id": "S-1010",
+      "summary": "Payment PRN generation failed",
+      "category": "Payments",
+      "started_at": "2025-12-13 10:14",
+      "status": "complete",
+      "transcript": "User: My PRN didn't generate. Bot: Please provide your TIN and confirm payment option. User: TIN: 100-234-567. Bot: The PRN generation failed with code 503. Agent escalated."
+    },
+    {
+      "id": "S-1002",
+      "summary": "How to reset Touchpoint password",
+      "category": "Touchpoint",
+      "started_at": "2025-11-20 09:12",
+      "status": "complete",
+      "transcript": "User: How do I reset my Touchpoint password? Bot: Visit ura.go.ug, click login, select Touchpoint, click forgot password..."
+    },
+    {
+      "id": "S-980",
+      "summary": "Logbook printing steps",
+      "category": "Motor Vehicle",
+      "started_at": "2025-10-05 14:22",
+      "status": "incomplete",
+      "transcript": "User: I can't print logbook. Bot: Ensure PDF viewer is installed. If still failing, visit Ministry office. User: I tried, still fails."
+    }
+  ],
+  "faqs": [
+    { "id": "faq-1", "question": "How to reset Touchpoint password?", "usage_count": 54, "last_asked": "2025-12-13" },
+    { "id": "faq-2", "question": "How to generate PRN for payment?", "usage_count": 47, "last_asked": "2025-12-13" },
+    { "id": "faq-3", "question": "How to print a logbook?", "usage_count": 20, "last_asked": "2025-12-12" }
+  ],
+  "timeseries": [
+    { "date": "2025-11-14", "qoe": 0.78 },
+    { "date": "2025-11-21", "qoe": 0.81 },
+    { "date": "2025-11-28", "qoe": 0.84 },
+    { "date": "2025-12-05", "qoe": 0.80 },
+    { "date": "2025-12-12", "qoe": 0.82 }
+  ],
+  "recommended_docs": [
+    { "doc_id": "doc-touch-01", "title": "Reset Touchpoint Password", "excerpt": "Steps to reset Touchpoint password and troubleshooting", "link": "https://ura.go.ug/touchpoint-reset" },
+    { "doc_id": "doc-pay-02", "title": "PRN Generation Guide", "excerpt": "How to generate PRN for payments when logged in and when not logged in", "link": "https://ura.go.ug/prn-guide" }
+  ]
+}
