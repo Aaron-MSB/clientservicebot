@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClientServiceBot — Executive Dashboard (Demo)</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">URA — ClientServiceBot</div>
+    <div class="controls">
+      <label for="range">Time range</label>
+      <select id="range">
+        <option value="7">Last 7 days</option>
+        <option value="14" selected>Last 14 days</option>
+        <option value="30">Last 30 days</option>
+        <option value="mtd">MTD</option>
+      </select>
+      <button id="refresh">Refresh</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpis" id="kpi-tiles">
+      <!-- KPI tiles inserted here -->
+    </section>
+
+    <section class="grid">
+      <div class="panel large">
+        <h3>Queries over time</h3>
+        <canvas id="queriesChart" height="160"></canvas>
+      </div>
+
+      <div class="panel small">
+        <h3>Top Categories</h3>
+        <canvas id="categoriesChart" height="160"></canvas>
+        <div id="categoriesList" class="list"></div>
+      </div>
+
+      <div class="panel small">
+        <h3>Device Breakdown</h3>
+        <canvas id="devicesChart" height="160"></canvas>
+        <div id="deviceLegend" class="list"></div>
+      </div>
+
+      <div class="panel medium">
+        <h3>Top Locations</h3>
+        <table id="locationsTable">
+          <thead>
+            <tr><th>Country</th><th>Region</th><th>Count</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="panel medium">
+        <h3>Executive Alerts</h3>
+        <div id="alertsList" class="alerts"></div>
+      </div>
+
+      <div class="panel full">
+        <h3>NPS & QoE History</h3>
+        <canvas id="qoeChart" height="80"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Demo — static executive dashboard • Open in Live Server to run
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
